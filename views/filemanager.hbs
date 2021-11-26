@@ -1,0 +1,40 @@
+<div id="left">
+  <h2>{{leftContent.1.text}}</h2>
+  <h2><a href="/reset">{{leftContent.1.click}}</a></h2>
+</div>
+<div id="main">
+  <table id="table">
+    <tr id="table-header">
+      <th>id</th>
+      <th>obraz</th>
+      <th>name</th>
+      <th>size</th>
+      <th>type</th>
+      <th>-</th>
+      <th>-</th>
+      <th>-</th>
+    </tr>{{#each files}} 
+      <tr>
+        <td>{{id}}</td>
+        <td><img
+            src="../gfx/{{image}}.jpg"
+            alt="???"
+            onerror="this.onerror=null;this.src='../gfx/question.png'"
+          />
+        </td>
+
+        <td>{{name}}</td>
+        <td>{{size}}</td>
+        <td>{{type}}</td>
+        <td><a
+            href="/filemanager"
+            onclick="location.href=this.href+'?id='+{{{id}}}+'&&delete=true';return false;"
+          >DELETE</a></td>
+        <td><a
+            href="/info"
+            onclick="location.href=this.href+'?id='+{{{id}}};return false;"
+          >INFO</a></td>
+        <td><a href="{{downloadPath}}" download="{{name}}">DOWNLOAD</a></td>
+      </tr>{{/each}}
+  </table>
+</div>
